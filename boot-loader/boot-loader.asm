@@ -1,0 +1,13 @@
+[ORG 0x00]
+[BITS 16]
+
+SECTION .text
+
+jmp $
+
+times 510 - ( $ - $$ ) db 0x00
+db 0x55
+db 0xaa
+
+; ( jmp $ ) 0x00 0x00 ... 0x55 0xaa
+; total length: 512 bytes
