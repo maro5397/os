@@ -1,3 +1,5 @@
+.PHONY: boot-loader clean
+
 all: boot-loader disk.img
 
 boot-loader:
@@ -11,7 +13,7 @@ boot-loader:
 	@echo ============== Build Complete ==============
 	@echo
 
-disk.img: boot-loader/boot-loader.bin
+disk.img: boot-loader
 	@echo
 	@echo ============== Disk Image Build Start ==============
 	@echo
