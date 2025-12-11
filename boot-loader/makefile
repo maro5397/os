@@ -5,4 +5,3 @@ boot-loader.bin: boot-loader.asm
 
 clean:
 	rm -f boot-loader.bin
-	rm -f boot-loader.asm
