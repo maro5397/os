@@ -30,6 +30,7 @@ disk.img: boot-loader kernel32
 	@echo
 
 	cat boot-loader/boot-loader.bin kernel32/virtual-os.bin > disk.img
+	truncate -s 1474560 disk.img
 
 	@echo
 	@echo ============== All Build Complete ==============
