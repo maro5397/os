@@ -14,7 +14,6 @@ START:
     mov ds, ax
     mov ax, 0xb800
     mov es, ax
-    mov si, 0
 
     mov ax, 0x0000
     mov ss, ax
@@ -70,6 +69,8 @@ READDATA:
     mov es, si
 
     mov al, byte [ SECTORNUMBER ]
+    add al, 0x01
+    mov byte [ SECTORNUMBER ], al
     cmp al, 19
     jl READDATA
 
@@ -123,7 +124,7 @@ PRINTMESSAGE:
     mov si, word [ bp + 8 ]
 
 .MESSAGELOOP:
-    mov cl, byte [ si + MESSAGE1 ]
+    mov cl, byte [ si ]
     cmp cl, 0
     je .MESSAGEEND
     mov byte [ es: di ], cl
